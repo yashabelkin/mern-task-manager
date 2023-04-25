@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const GETURL = "http://127.0.0.1:8000/api/v1/lists/"
-const URL = "http://127.0.0.1:8000/api/v1/tasks/"
+const GETURL = "https://mren-task-app.onrender.com/api/v1/lists/"
+const URL = "https://mren-task-app.onrender.com/api/v1/tasks/"
 
 
 

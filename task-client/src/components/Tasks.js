@@ -30,7 +30,7 @@ const Tasks = () => {
 
   useEffect(() => {
     axios
-    .get(`http://127.0.0.1:8000/api/v1/lists/${listId.id}`)
+    .get(`https://mren-task-app.onrender.com/api/v1/lists/${listId.id}`)
     .then((response) => 
     setList(response.data.data))
     .catch((err) => console.log(err));

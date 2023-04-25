@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = "http://127.0.0.1:8000/api/v1/lists/"
+const URL = "https://mren-task-app.onrender.com/v1/lists/"
 
 export function getData() {
     return new Promise((resolve) =>
