@@ -4,22 +4,23 @@ import { MdOutlineClose } from 'react-icons/md'
 import { useDispatch } from 'react-redux';
 import { Button } from '@mui/material';
 import { deleteListAsync } from '../slicers/listSlicer';
-import { toast } from 'react-hot-toast';
 import { deleteTaskAsync } from '../slicers/taskSlicer';
 
 const DeleteModal = ({itemType, modalOpen, setModalOpen, item}) => {
+  const dispatch = useDispatch();
 
     const handleDelete = () => {
         if(itemType === "list") {
-        dispatch(deleteListAsync({id:item.id}))
-        toast.success('List Deleted')
+          dispatch(deleteListAsync({id:item.id}))
+          console.log(item)
+
         } else {
-            dispatch(deleteTaskAsync({id:item.id}))
-        toast.success('Task Deleted')
+          console.log(item)
+          dispatch(deleteTaskAsync({id:item.id}))
+
         }
 
     }
-    const dispatch = useDispatch();
 
   return (
     <div>{modalOpen && (
@@ -35,7 +36,7 @@ const DeleteModal = ({itemType, modalOpen, setModalOpen, item}) => {
             >
               <MdOutlineClose/>
             </div>
-            <form className={styles.form} onSubmit={(e)=> handleDelete(e)}>
+            <form className={styles.form} onSubmit={(e)=> {handleDelete(e)}}>
                 
                 <h1 className={styles.formTitle}> 
                  Are you sure you want to delete {item.name} from {itemType === 'list' ? 'lists': 'tasks'} ?
@@ -47,7 +48,7 @@ const DeleteModal = ({itemType, modalOpen, setModalOpen, item}) => {
                    Delete</Button>
                   <Button 
                   variant="contained" size="large" color='primary'
-                  onClick={() => setModalOpen(false)}
+                  onClick={() =>   setModalOpen(false)}
                   onKeyDown={() => setModalOpen(false)}
                   type='button'>cancel</Button>
     

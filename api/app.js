@@ -50,6 +50,8 @@ app.use(
 
 // Passport config
 require('./config/passport')(passport);
+ 
+// new one
 
 // routes
 

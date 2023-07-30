@@ -7,8 +7,6 @@ function App() {
 
   return (
     <div className="container">
-
-
       <Toaster></Toaster>
       <Routes>
         

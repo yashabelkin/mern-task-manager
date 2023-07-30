@@ -24,7 +24,7 @@ const TaskModal = ( {type, modalOpen, setModalOpen, task, list}) => {
       setNewTask('')
       setStatus(false)
     }
-  }, [type, modalOpen ])
+  }, [type, modalOpen, task])
   
 
   const handleSubmit = (e) => {
@@ -37,8 +37,7 @@ const TaskModal = ( {type, modalOpen, setModalOpen, task, list}) => {
 
     toast.success('Task Added Successfully') 
     setTimeout(() => {
-      
-
+      window.location.reload()
     }, 500);
     setModalOpen(false)
     }
@@ -47,7 +46,10 @@ const TaskModal = ( {type, modalOpen, setModalOpen, task, list}) => {
         dispatch(updateTaskAsync({id:task.id, name:newTask}))
         toast.success('Task Updated Successfully', {duration: 1000}) 
         setModalOpen(false)
+        setTimeout(() => {
+          window.location.reload()
 
+        }, 1000);
       } else {
         toast.error("No Changes Made")
       }

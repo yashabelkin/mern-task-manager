@@ -60,7 +60,7 @@ const [checked, setChecked] = useState(false)
         
         <div className={styles.todoActions}>
             <div className={styles.icon}>
-                <MdDelete onClick={()=>handleDelete()}/>
+                <MdDelete onClick={()=>{handleDelete(); console.log(task)}}/>
             </div>
             <div className={styles.icon}
             onClick={handleUpdate}
